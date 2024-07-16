@@ -1,0 +1,12 @@
+src/local_code/cwave-k8s/makeENV/eks/.terraform/
+src/local_code/cwave-k8s/makeENV/eks/.terraform.lock
+src/local_code/cwave-k8s/makeENV/eks/.terraform.lock.hcl
+src/local_code/cwave-k8s/makeENV/IDE/.env
+src/local_code/cwave-k8s/makeENV/IDE/password.txt
+.env
+src/config
+src/local_code/makeENV/IDE/.env
+src/local_code/makeENV/IDE/password.txt
+src/local_code/makeENV/kindCluster/k8s-cluster/aa.txt
+password.txt
+gitsync.env

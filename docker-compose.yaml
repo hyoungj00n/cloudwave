@@ -1,0 +1,50 @@
+version : "3.8"
+name: "final"
+
+services:
+  server:
+    image: hyoungjoon/cloudwave:practice.v1
+    working_dir: /code
+    environment:
+      FILE__PASSWORD: /run/secrets/code-server-password
+    env_file : 
+      - .env
+    ports:
+      - "8443:8443"
+    depends_on:
+      git-sync:
+        condition: service_completed_successfully
+    volumes:
+      - .\src:/code/local_code
+      - /var/run/docker.sock:/var/run/docker.sock
+      - remote_code:/code/remote-code
+      - config:/config
+    secrets:
+     - code-server-password
+    
+
+  git-sync:
+    image: registry.k8s.io/git-sync/git-sync:v4.1.0
+    env_file:
+      - gitsync.env
+    volumes:
+      - remote_code:/tmp
+    
+   
+    
+
+
+secrets:
+  code-server-password:
+    file: password.txt
+
+volumes:
+  local-code:
+    external: true
+    name: local_code
+  remote-code:
+    external: true
+    name: remote_code
+  config:
+    external: true
+    name: config
