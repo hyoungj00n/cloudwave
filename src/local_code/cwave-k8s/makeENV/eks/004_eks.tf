@@ -21,8 +21,11 @@ module "eks" {
       cluster_name = var.cluster-name
       most_recent = true
     }
+  
+    aws-ebs-csi-driver = {
+      most_recent = true
+    }
   }
-
   vpc_id                   = aws_vpc.vpc.id
   subnet_ids               = [aws_subnet.private-subnet-a.id, aws_subnet.private-subnet-c.id]
 
