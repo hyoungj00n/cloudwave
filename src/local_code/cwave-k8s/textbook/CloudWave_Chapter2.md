@@ -1045,11 +1045,7 @@ $ kubectl exec -it mongodb mongo
 $ kubectl delete po mongodb
 ```
 
- 
-
 ### 13.4 PersistentVolume 및 PersistentVolumeClaim
-
- 
 
 #### 13.4.1 PersistentVolume 생성
 
